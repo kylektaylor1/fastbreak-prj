@@ -1,13 +1,12 @@
 # Fastbreak NBA Dashboard
 
-Fastbreak is a Next.js application that provides users with a personalized NBA statistics viewing experience. The app allows users to browse team and player stats, view detailed analytics through interactive charts, and maintain a list of favorite teams and players.
+Fastbreak is a Next.js application that provides users with a personalized NBA statistics viewing experience. The app allows users to browse team and player stats, view detailed analytics through interactive charts, and maintain a list of favorite teams.
 
 ## Key Features
 
 - **Team and Player Stats**: View comprehensive NBA statistics including wins, losses, scoring percentages, and performance metrics
 - **Interactive Charts**: Visualize team performance with charts for points per game and shooting percentages
 - **Favorites System**: Save your favorite teams and players for quick access
-- **Responsive Dashboard**: User-friendly interface designed for both desktop and mobile
 
 ## Authentication
 
@@ -61,3 +60,4 @@ pnpm build
 # Run production build
 pnpm start
 ```
+
