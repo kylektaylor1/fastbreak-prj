@@ -8,6 +8,7 @@
         "start": "next start",
         "lint": "eslint ./src",
         "with-env": "dotenv -e ./.env --",
+        "with-env-prod": "dotenv -e ./.env.prod --",
         "format": "prettier --write .",
         "clean": "rm -rf ./dist ./node_modules",
         "-------- 💾💾 DATABASE THINGS 💾💾 --------": "-------- 💾💾 DATABASE THINGS 💾💾 --------",
@@ -17,7 +18,9 @@
         "db:studio": "pnpm with-env drizzle-kit studio",
         "db:studio:prod": "pnpm dotenv -e ./.env.production drizzle-kit studio",
         "db:seed": "pnpm with-env tsx ./src/db/seed.ts",
-        "db:mint": "rm -f ./local.db && pnpm db:migrate && pnpm db:seed"
+        "db:mint": "rm -f ./local.db && pnpm db:migrate && pnpm db:seed",
+        "db:migrate:prod": "pnpm with-env-prod tsx ./src/db/migrate.ts",
+        "db:seed:prod": "pnpm with-env-prod tsx ./src/db/seed.ts"
     },
     "dependencies": {
         "@auth0/nextjs-auth0": "^4.4.2",

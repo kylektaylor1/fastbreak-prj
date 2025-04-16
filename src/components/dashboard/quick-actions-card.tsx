@@ -3,7 +3,11 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 
-export function QuickActionsCard() {
+type Props = {
+    hornetsTeamId: string;
+};
+
+export function QuickActionsCard({ hornetsTeamId }: Props) {
     return (
         <Card>
             <CardHeader>
@@ -12,7 +16,7 @@ export function QuickActionsCard() {
             <CardContent>
                 <div>
                     <Button asChild variant={'outline'}>
-                        <Link href={'/dashboard/teams/Ca5obWeEeadRmJy9AfoGp'}>
+                        <Link href={`/dashboard/teams/${hornetsTeamId}`}>
                             View Hornets Info
                         </Link>
                     </Button>

@@ -1,7 +1,10 @@
 import { BasePageContainer } from '@/components/common/page-container';
 import { QuickActionsCard } from '@/components/dashboard/quick-actions-card';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { db } from '@/db';
+import { teamTable } from '@/db/schema';
 import { auth0 } from '@/utils/auth0';
+import { eq } from 'drizzle-orm';
 import { redirect } from 'next/navigation';
 
 export default async function Home() {
@@ -10,6 +13,11 @@ export default async function Home() {
     if (!session) {
         redirect('/');
     }
+
+    const hornetsTeam = await db.query.teamTable.findFirst({
+        where: eq(teamTable.abbreviation, 'CHA'),
+    });
+    const hornetsTeamId = hornetsTeam?.id;
 
     return (
         <BasePageContainer>
@@ -28,7 +36,9 @@ export default async function Home() {
                     </CardContent>
                 </Card>
 
-                <QuickActionsCard />
+                {hornetsTeamId && (
+                    <QuickActionsCard hornetsTeamId={hornetsTeamId} />
+                )}
             </div>
         </BasePageContainer>
     );
